@@ -87,10 +87,30 @@ public class Cadastro {
 
         }while(!opcao.equals("4"));
 
+        exibirRelatorio();
+
 
         in.close();
 
          System.out.println("Ate mais tenha um otimo dia !!!");
+    }
+
+
+    private static float calcularMediaNotas(){
+        float soma = 0;
+
+        for(int i = 0; i < index; i++){
+            soma = soma + calcularMedia(i);
+        }
+
+        return soma / index;
+    }
+    private static void exibirRelatorio(){
+        int qtde = index;
+        float media = calcularMediaNotas();
+        System.out.println("Relatório: ");
+        System.out.println("Quantidade de alunos: " + qtde);
+        System.out.println("Media de notas dos alunos: " + media);
     }
 
 
