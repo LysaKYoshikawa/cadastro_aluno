@@ -1,14 +1,14 @@
-package cadastro;
+package Dominio;
 
 import auxiliar.Constante;
 
 public class Alunos {
 
-
-    String nomesDoAlunos;
-    String turmasCadastradas;
-    float notaPrimeiraAvaliacao;
-    float notaSegundaAvaliacao;
+//foi colocado public nos campos abaixo "public String nomesDoAlunos;" para ficarem visiveis em outro pacote
+    public String nomesDoAlunos;
+    public String turmasCadastradas;
+    public float notaPrimeiraAvaliacao;
+    public float notaSegundaAvaliacao;
 
     public  Alunos(){
         nomesDoAlunos = "Fantasma";
@@ -36,7 +36,7 @@ public class Alunos {
 
     }
 
-    void exibir(){
+    public void exibir(){
         float mc = calcularMedia();
         System.out.println("Alunos: " + this + " = " + this.calcularMedia() + " [ " + getSituacaoDoAluno(mc) + " ]");
     }

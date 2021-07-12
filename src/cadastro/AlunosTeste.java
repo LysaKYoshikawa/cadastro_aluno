@@ -1,5 +1,7 @@
 package cadastro;
 
+import Dominio.Alunos;
+
 public class AlunosTeste {
 
     public static void main(String[] args){
