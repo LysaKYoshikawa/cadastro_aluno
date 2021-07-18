@@ -4,24 +4,26 @@ import auxiliar.Constante;
 
 public class Professor {
 
-    private String nomeDoProfessor;
-    private int turmaDoProfessor;
-    private float salarioDoProfessor;
+    private String nomeDeCadastro;
+    private String titulo;
+    private int turmasCadastradas;
+    private float avaliacaoDoProfessor;
     private boolean posGraduado;
     private String especializacao;
 
-    public Professor(String nomeDoProfessor,int turmaDoProfessor){
-        this.nomeDoProfessor=nomeDoProfessor; //esse this é para referenciar que ele é a String da logica.
+    public Professor(String nomeDeCadastro,int turmaDoProfessor, String titulo){
+        this.nomeDeCadastro=nomeDeCadastro; //esse this é para referenciar que ele é a String da logica.
         // em outras Palavras o THIs esta para representar o a
-        this.turmaDoProfessor=turmaDoProfessor;
+        this.turmasCadastradas=turmasCadastradas;
+        this.titulo=titulo;
 
     }
 
-    public Professor(String nomeDoProfessor, int turmaDoProfessor, float salarioDoProfessor, boolean posGraduado, String especializacao){
-        this(nomeDoProfessor,turmaDoProfessor);
+    public Professor(String nomeDeCadastro,String titulo, int turmasCadastradas, float avaliacaoDoProfessor, boolean posGraduado, String especializacao){
+        this(nomeDeCadastro,turmasCadastradas,titulo);
         //this.nomeDoProfessor=nomeDoProfessor;
         //this.turmaDoProfessor=turmaDoProfessor;
-        this.salarioDoProfessor=salarioDoProfessor;
+        this.avaliacaoDoProfessor=avaliacaoDoProfessor;
         this.posGraduado=posGraduado;
         this.especializacao=especializacao;
 
@@ -35,14 +37,14 @@ public class Professor {
         return "Projeto".equalsIgnoreCase(especializacao ) ? 2000 : 500;
     }
 
-    private float calcularSalario(){
-        return salarioDoProfessor + calculadoraComissaoPosGraduado() + calcularComissaoEspecializacao();
+    private float calcularAvaliacao(){
+        return avaliacaoDoProfessor + calculadoraComissaoPosGraduado() + calcularComissaoEspecializacao();
     }
 
-    private String getSituacaoProfessor(float calcularSalario){
-        if (calcularSalario > 3500){
+    private String getSituacaoProfessor(float calcularAvaliacao){
+        if (calcularAvaliacao > 3500){
             return "Professor qualificado";
-        } else if (calcularSalario < 1500){
+        } else if (calcularAvaliacao < 1500){
             return "Professor regular";
         } else {
             return "Professor não qualificado";
@@ -53,11 +55,11 @@ public class Professor {
 
     @Override // esse @ vem para informar que ele é um metodo que estamos sobreescrevendo em
     public String toString(){
-        float sl = calcularSalario();
-        return "Sou a Professora" + " " + this.nomeDoProfessor + " " + "estou na turma" +
-                " " + this.turmaDoProfessor + " " + "Pos graduado " + " " + this.posGraduado +
+        float sl = calcularAvaliacao();
+        return "Sou a Professora" + " " + this.nomeDeCadastro + " " + "estou na turma" +
+                " " + this.turmasCadastradas + " " + "Pos graduado " + " " + this.posGraduado +
                 " " + "no curso de " + " " + this.especializacao + " " +
-                "recebendo o salario no valor de: " + this.salarioDoProfessor +
+                "recebendo uma avaliação de criterio de professor: " + this.avaliacaoDoProfessor +
                 "||" + sl + "(" + getSituacaoProfessor(sl)+ ")";
     }
  // private String especializacao
@@ -67,19 +69,29 @@ public class Professor {
 
     }
     //set
-    public void setEspecializacao(String projetos){
+    public void setEspecializacao(String especializacao){
         this.especializacao=especializacao;
 
     }
-    
-    //get
-    public float getSalarioDoProfessor(){
-        return this.salarioDoProfessor;
+
+    public String getTitulo(){
+        return this.titulo;
 
     }
     //set
-    public void setSalarioDoProfessor(float salarioDoProfessor){
-        this.salarioDoProfessor=salarioDoProfessor;
+    public void setTitulo(String titulo){
+        this.titulo=titulo;
+
+    }
+
+    //get
+    public float getAvaliacaoDoProfessor(){
+        return this.avaliacaoDoProfessor;
+
+    }
+    //set
+    public void setAvaliacaoDoProfessor(float avaliacaoDoProfessor){
+        this.avaliacaoDoProfessor=avaliacaoDoProfessor;
 
     }
     //get

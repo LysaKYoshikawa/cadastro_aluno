@@ -2,27 +2,29 @@ package Dominio;
 
 import auxiliar.Constante;
 
-public class Alunos {
+public class Escola { //nesse caso esta como Alunos mas devido a logica da aula o ideal seria estar como escola e classes filhas como alunos professor e administrativo
 
 //foi colocado public nos campos abaixo "public String nomesDoAlunos;" para ficarem visiveis em outro pacote
-    public String nomesDoAlunos;
+    public String nomeDeCadastro;
+    public String titulo;
     public String turmasCadastradas;
     public float notaPrimeiraAvaliacao;
     public float notaSegundaAvaliacao;
 
-    public  Alunos(){
-        nomesDoAlunos = "Fantasma";
+    public Escola(){
+        nomeDeCadastro= "Fantasma";
     }
 
-    public Alunos(String nomesDoAlunos, float notaPrimeiraAvaliacao){
+    public Escola(String nomeDeCadastro, float notaPrimeiraAvaliacao){
         this();
-        this.nomesDoAlunos = nomesDoAlunos;
+        this.nomeDeCadastro = nomeDeCadastro;
         this.notaPrimeiraAvaliacao = notaPrimeiraAvaliacao;
     }
 
-    public Alunos(String nomesDoAlunos, float notaPrimeiraAvaliacao, String turmasCadastradas, float notaSegundaAvaliacao){
-        this(nomesDoAlunos, notaPrimeiraAvaliacao); //Esse this é o caso de quiser puxaras informações do this de cima ou de outra class
+    public Escola(String nomeDeCadastro, float notaPrimeiraAvaliacao, String titulo, String turmasCadastradas, float notaSegundaAvaliacao){
+        this(nomeDeCadastro, notaPrimeiraAvaliacao); //Esse this é o caso de quiser puxaras informações do this de cima ou de outra class
         this.turmasCadastradas = turmasCadastradas;
+        this.titulo=titulo;
         this.notaSegundaAvaliacao = notaSegundaAvaliacao;
     }
 
@@ -45,7 +47,7 @@ public class Alunos {
 
     @Override // esse @ vem para informar que ele é um metodo que estamos sobreescrevendolop7888pppppppppppp5uhyjn9mhmjpj
     public String toString(){
-        return "Sou o Aluno" + " " + nomesDoAlunos + " " + "estou na turma" + " " + turmasCadastradas + " " + "Minha primeira avalição eu tirei"
+        return "Sou o Aluno" + " " + nomeDeCadastro + " " + "estou na turma" + " " + turmasCadastradas + " " + "Minha primeira avalição eu tirei"
                 + " " + notaPrimeiraAvaliacao + " " + "Na segunda avaliação tirei a nota" + " " + notaSegundaAvaliacao;
     }
 }
